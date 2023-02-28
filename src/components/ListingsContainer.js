@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer({searchTerm, isSorted}) {
-  const [gregsListings, setGregsListings] = useState([]);
+function ListingsContainer({searchTerm, isSorted, gregsListings, setGregsListings}) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(()=>{
@@ -25,7 +24,7 @@ function ListingsContainer({searchTerm, isSorted}) {
   .sort((ls1,ls2)=>{return compareStrings(ls1.description, ls2.description)});
   }
   else{
-    displayList = gregsListings.filter((element, index)=>{return element.description.includes(searchTerm)});
+    displayList = gregsListings.filter((element)=>{return element.description.includes(searchTerm)});
   }
   
   if (!isLoaded) return <h3>loading...</h3>

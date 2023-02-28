@@ -6,13 +6,14 @@ import SubmissionForm from "./SubmissionForm";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("")
-  const [isSorted, setSorted] = useState(true)
+  const [isSorted, setSorted] = useState(false)
+  const [gregsListings, setGregsListings] = useState([]);
 
   return (
     <div className="app">
       <Header setSearchTerm = {setSearchTerm} searchTerm = {searchTerm} setSorted = {setSorted} isSorted = {isSorted}/>
-      <SubmissionForm></SubmissionForm>
-      <ListingsContainer searchTerm={searchTerm} isSorted = {isSorted} />
+      <SubmissionForm setGregsListings = {setGregsListings} gregsListings = {gregsListings}></SubmissionForm>
+      <ListingsContainer gregsListings={gregsListings} setGregsListings = {setGregsListings} searchTerm={searchTerm} isSorted = {isSorted} />
     </div>
   );
 }
